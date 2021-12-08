@@ -1,0 +1,35 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+#lisaakoira {
+    position: relative; 
+    left: 5%; 
+    width: 200px
+   
+}
+#koirat {
+    margin-bottom: 1px;
+    width: 30px; 
+    height: 0px; 
+    position: relative; 
+    left: 35%; 
+    
+
+}
+
+#listaus {
+    position: absolute; 
+    left: 30%; 
+    top: 25%; 
+}
+
+#lomake {
+    width: 250px; 
+    height: 100px; 
+    position: relative; 
+    top: 10px; 
+    left: 40px; 
+}
+
