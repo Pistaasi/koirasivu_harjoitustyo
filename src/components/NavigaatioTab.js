@@ -7,6 +7,7 @@ import PetsIcon from '@mui/icons-material/Pets';
 import AppBarMUI from "./AppBarMUI";
 import KaikkiKoiratDB from "./KaikkiKoiratDB"; 
 import Painolaskin from "./Painolaskin"; 
+import KoiralistaMUI from "./KoiralistaMUI";
   
 
 function Menu () {
@@ -27,7 +28,7 @@ return (
         </Tabs>
 
         { value === 0 && <LisaaKoiraLomake /> }
-        { value === 1 && <KaikkiKoiratDB /> }
+        { value === 1 && <KoiralistaMUI /> }
         { value === 2 && <Painolaskin /> }
      </Box>
      </div>

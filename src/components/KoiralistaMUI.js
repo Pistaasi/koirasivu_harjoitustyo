@@ -10,12 +10,33 @@ import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KoiraJee from "./KoiraJee.jpg"; 
+import HaeKoirat from "./HaeKoirat"; 
+import { Button } from '@mui/material';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function KoiralistaMUI (props) {
 
+  const [koiratdb, setKoiratdb] = useState([]);
+    const [virhe, setVirhe] = useState('Haetaan');
+    const haeKaikkiKoirat = async () => {
+    try {
+    const response = await fetch('http://localhost:8080/koira/all');
+    const json = await response.json();
+    setKoiratdb(json);
+    setVirhe('');
+    } catch (error) {
+    setKoiratdb([]);
+    setVirhe('Koiria ei löytynyt :(');
+    }
+    }
+    useEffect(() => {
+    haeKaikkiKoirat();
+    }, []);
+
   return (
     <Grid id="koiraboksi" container spacing={4} sx={{ marginTop:1}}>
-      { props.koira.map(koira => {
+      { koiratdb.map(koira => {
           return (
             <Grid item key={ koira.nimi }>
               <Card>
@@ -35,7 +56,7 @@ function KoiralistaMUI (props) {
  
               <CardActions>
                   <IconButton color='primary'><EditIcon /></IconButton>
-                  <IconButton><DeleteIcon /></IconButton>
+                  <IconButton color="secondary"><DeleteIcon /></IconButton>
               </CardActions>
             </Card>
           </Grid>

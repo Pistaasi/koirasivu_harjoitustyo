@@ -3,7 +3,7 @@ import React from "react";
 function Koira(props) {
     return (
     <div>
-    { props.koira.map( koira => {
+    { props.koirat.map( koira => {
     return (
     <p key={ koira.nimi }>
     <b id="title">Nimi:</b> { koira.nimi }<br/>

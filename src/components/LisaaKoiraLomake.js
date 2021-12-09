@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import KoiralistaMUI from './KoiralistaMUI';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { Button } from '@mui/material';
+import { Button, CardActions } from '@mui/material';
+import { Grid } from '@mui/material';
+import { Card } from '@mui/material';
+import { CardHeader } from '@mui/material';
+import { CardContent } from '@mui/material';
+import { CardMedia } from '@mui/material';
+import { Typography } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import KoiraJee from "./KoiraJee.jpg"; 
+import { IconButton } from '@mui/material';
+
 
 
 function Koiralomake () {
@@ -135,7 +146,34 @@ return (
 
     
     </form> 
-    <div id="listaus"><KoiralistaMUI koira ={ KoiratTaulukko } /></div>
+  
+    <Grid id="listaus" container spacing={4} sx={{ marginTop:1}}>
+      { KoiratTaulukko.map(koira => {
+          return (
+            <Grid item key={ koira.nimi }>
+              <Card>
+              <CardHeader
+                title={ koira.nimi }
+                subheader={ koira.omistaja } />
+
+              <CardContent>
+              
+                <Typography>{ koira.rotu }</Typography>
+                <Typography>{ koira.sukupuoli }</Typography>
+                <Typography>{ koira.kuvaus }</Typography>
+              </CardContent>
+ 
+              <CardActions>
+                  <IconButton color='primary'><EditIcon /></IconButton>
+                  <IconButton color="secondary"><DeleteIcon /></IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
+        )
+      })
+    }
+    </Grid>
+
     </div>
     
  );

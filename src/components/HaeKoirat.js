@@ -1,16 +1,18 @@
 import KoiralistaMUI from "./KoiralistaMUI";
+import React, { useState, useEffect } from 'react';
+import { Typography } from "@mui/material";
 
 function HaeKoirat () {
-    const [koirat, setKoira] = useState([]);
+    const [koiratdb, setKoiratdb] = useState([]);
     const [virhe, setVirhe] = useState('Haetaan');
     const haeKaikkiKoirat = async () => {
     try {
     const response = await fetch('http://localhost:8080/koira/all');
     const json = await response.json();
-    setKoira(json);
+    setKoiratdb(json);
     setVirhe('');
     } catch (error) {
-    setHenkilo([]);
+    setKoiratdb([]);
     setVirhe('Koiria ei löytynyt :(');
     }
     }
@@ -18,11 +20,7 @@ function HaeKoirat () {
     haeKaikkiKoirat();
     }, []);
 
-    if (virhe.length > 0) {
-        return ( <Typography>{ virhe }</Typography> );
-        }
-        if (koirat.length > 0) {
-        return ( <KoiralistaMUI koirat={ koirat } /> );
-        }
-        return ( <Typography>Koiria ei vielä ole!</Typography> );
+    return ( <KoiralistaMUI koiratdb={ koiratdb } /> );
 }
+
+export default HaeKoirat;
