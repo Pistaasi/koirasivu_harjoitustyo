@@ -5,8 +5,18 @@ function Koira() {
     return (
     <div>
     <AppBarMUI/>
-    <p> Tyhjää täynnä (Vielä!), Tili ja asetukset sivu kuulostavat vähän tylsiltä itselle, varmaan reititän tänne jtn vähän kivempaa :D 
+    <h1>Sivun tekijä: </h1>
+    <p>Iida Rokka</p>
+    <br/>
+    <h1>Käytetyt teknologiat: </h1>
+    <p>React, rumble-charts, axios, node.js, express palvelinohjelma jne.</p>
+    <h1>Syy: </h1>
+    <p>Eka kerta kun käytän Reactia, koko sivu on Frontendohjelmointikurssia varten oleva
+        lopputyö. Syy teemaan oli, jotta voisin laittaa ylös näkemiä koiria. 
     </p>
+
+
+    
     </div>
     );
     }

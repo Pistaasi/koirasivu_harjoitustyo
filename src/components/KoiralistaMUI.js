@@ -14,6 +14,9 @@ import HaeKoirat from "./HaeKoirat";
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import axios from 'axios';
+
+
 
 function KoiralistaMUI (props) {
 
@@ -55,7 +58,7 @@ function KoiralistaMUI (props) {
               </CardContent>
  
               <CardActions>
-                  <IconButton color='primary'><EditIcon /></IconButton>
+                  <IconButton color='primary' ><EditIcon /></IconButton>
                   <IconButton color="secondary"><DeleteIcon /></IconButton>
               </CardActions>
             </Card>

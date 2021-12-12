@@ -30,11 +30,7 @@ return (
         <List>
           <ListItem button>
             <ListItemIcon><HomeIcon color='primary'/></ListItemIcon>
-            <ListItemText primary='Tili' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon><CreateIcon color='primary'/></ListItemIcon>
-            <ListItemText primary='Graafit'  />
+            <ListItemText primary='Tiedot' />
           </ListItem>
           <ListItem button>
             <ListItemIcon><ListIcon color='primary'/></ListItemIcon>

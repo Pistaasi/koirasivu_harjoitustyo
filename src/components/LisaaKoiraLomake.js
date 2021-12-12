@@ -13,6 +13,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KoiraJee from "./KoiraJee.jpg"; 
 import { IconButton } from '@mui/material';
+import axios from 'axios';
+
 
 
 
@@ -37,11 +39,11 @@ const [koira, setValues] = useState( {
     sukupuoli: "",
     omistaja: "",
     ika: "", 
-    kuvaus: ""
+    kuvaus: "", 
+    kuva: ""
 });
 
 const [viesti, setViesti] = useState(""); 
-
 
 const muuta = (e) => {
     setValues( {
@@ -63,16 +65,36 @@ const lisaaKoira = (e) => {
     } else if (koira.nimi !== "" && koira.rotu !== "" && koira.sukupuoli !== "" 
     && koira.omistaja !== "" && koira.ika !== "" && koira.kuvaus !== "") {
 
-        setViesti(""); 
-
+        // yksi sivulle lisäämiseen, yksi db varten
        const koiraObj = {
             nimi: koira.nimi, 
             rotu: koira.rotu, 
             sukupuoli: koira.sukupuoli, 
             omistaja: koira.omistaja, 
             ika: koira.ika, 
-            kuvaus: koira.kuvaus
+            kuvaus: koira.kuvaus,
+            kuva: koira.kuva
        }; 
+        const koiraData = {
+        'nimi': koira.nimi, 
+        'rotu': koira.rotu, 
+        'sukupuoli': koira.sukupuoli, 
+        'omistaja': koira.omistaja, 
+        'ika': koira.ika, 
+        'kuvaus': koira.kuvaus,
+        'kuva': koira.kuva
+        }
+
+        axios.post('http://localhost:8080/koira/add', koiraData)
+        .then(response => {
+        if (response.status === 200) {
+        setValues( {nimi: "", rotu: "", sukupuoli: "", omistaja: "", ika: "", kuvaus: "", 
+    kuva: ""} );
+        setViesti('Koira lisätty!');
+        } else {
+        setViesti('Koiran lisääminen ei onnistunut ');
+        }
+    }) //anxios
 
        KoiratTaulukko.push(koiraObj); 
 
@@ -85,7 +107,7 @@ const lisaaKoira = (e) => {
        console.log(KoiratTaulukko); 
 
        
-    }
+    } // else if loppu
     
 }
 
@@ -163,10 +185,6 @@ return (
                 <Typography>{ koira.kuvaus }</Typography>
               </CardContent>
  
-              <CardActions>
-                  <IconButton color='primary'><EditIcon /></IconButton>
-                  <IconButton color="secondary"><DeleteIcon /></IconButton>
-              </CardActions>
             </Card>
           </Grid>
         )

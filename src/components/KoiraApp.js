@@ -6,7 +6,6 @@ import NavigaatioTab from "./NavigaatioTab";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ListaaKoirat from "./ListaaKoirat"; 
 import Tili from "./Tili"; 
-import Asetukset from "./Asetukset"; 
 import HaeKoirat from './HaeKoirat';
 
 
@@ -35,7 +34,6 @@ function KoiraApp() {
   <Switch>
   <Route exact path='/'> <NavigaatioTab /> </Route>
   <Route path='/Tili'> < Tili/> </Route>
-  <Route path='/Asetukset'> <Asetukset /> </Route>
   <Route path='/Koirat'> <ListaaKoirat /> </Route>
   <Route path='/*'> <NavigaatioTab/> </Route>
   <Route path='/listaa'> <HaeKoirat/> </Route>

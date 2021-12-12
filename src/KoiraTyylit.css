@@ -33,3 +33,9 @@ body {
     left: 40px; 
 }
 
+
+#ikaChart {
+    left: 15px; 
+    position: relative; 
+}
+

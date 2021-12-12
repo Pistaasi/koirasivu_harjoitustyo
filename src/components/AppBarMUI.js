@@ -37,10 +37,6 @@ return (
             <ListItemIcon><AccountCircleIcon color='primary'/></ListItemIcon>
             <ListItemText primary='Tili' />
           </ListItem>
-          <ListItem button component={ Link } to='/Asetukset'>
-            <ListItemIcon><SettingsIcon color='primary'/></ListItemIcon>
-            <ListItemText primary='Grafiikat'  />
-          </ListItem>
           <ListItem button component={ Link } to='/'>
             <ListItemIcon><PetsIcon color='primary'/></ListItemIcon>
             <ListItemText primary='Koirat' />

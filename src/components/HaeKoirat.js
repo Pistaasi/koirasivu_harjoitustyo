@@ -1,6 +1,7 @@
 import KoiralistaMUI from "./KoiralistaMUI";
 import React, { useState, useEffect } from 'react';
 import { Typography } from "@mui/material";
+import Taulukot from "./Taulukot"; 
 
 function HaeKoirat () {
     const [koiratdb, setKoiratdb] = useState([]);
@@ -20,7 +21,10 @@ function HaeKoirat () {
     haeKaikkiKoirat();
     }, []);
 
-    return ( <KoiralistaMUI koiratdb={ koiratdb } /> );
+    return ( 
+    <KoiralistaMUI koiratdb={ koiratdb } />,
+    <Taulukot koiratdb={ koiratdb } />
+        );
 }
 
 export default HaeKoirat;
