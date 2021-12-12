@@ -5,7 +5,6 @@ import Tab from '@mui/material/Tab';
 import LisaaKoiraLomake from "./LisaaKoiraLomake"; 
 import PetsIcon from '@mui/icons-material/Pets';
 import AppBarMUI from "./AppBarMUI";
-import KaikkiKoiratDB from "./KaikkiKoiratDB"; 
 import Taulukot from "./Taulukot"; 
 import KoiralistaMUI from "./KoiralistaMUI";
   

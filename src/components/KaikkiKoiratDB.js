@@ -74,7 +74,7 @@ function KaikkiKoirat () {
         )
       })
     }
-    {"////Moi ope :) Meinasin tehdä tänne siis DB listauksen, muttei DB ei vielä ole käytössä, niin täällä on tällanen placeholder lista tilalla"
+    {
             }
     </Grid>
   )

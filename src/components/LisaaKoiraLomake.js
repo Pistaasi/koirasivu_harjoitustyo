@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import KoiralistaMUI from './KoiralistaMUI';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { Button, CardActions } from '@mui/material';
@@ -7,12 +6,7 @@ import { Grid } from '@mui/material';
 import { Card } from '@mui/material';
 import { CardHeader } from '@mui/material';
 import { CardContent } from '@mui/material';
-import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import KoiraJee from "./KoiraJee.jpg"; 
-import { IconButton } from '@mui/material';
 import axios from 'axios';
 
 
@@ -160,7 +154,7 @@ return (
     <br/>
 
     <TextField id="kuvaus" label='Lyhyt Kuvaus' name='kuvaus' variant="outlined"  value={ koira.kuvaus } 
-    onChange={ (e) => muuta(e) }  /><br />
+    onChange={ (e) => muuta(e) }  multiline rows='3' fullWidth /><br />
 
     <Button variant='contained' onClick={ (e) => lisaaKoira(e) }>Lisää</Button>
 

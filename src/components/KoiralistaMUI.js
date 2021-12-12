@@ -3,20 +3,13 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import KoiraJee from "./KoiraJee.jpg"; 
-import HaeKoirat from "./HaeKoirat"; 
-import { Button } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-
-
 
 function KoiralistaMUI (props) {
 
@@ -37,7 +30,17 @@ function KoiralistaMUI (props) {
     haeKaikkiKoirat();
     }, []);
 
+    const DeleteRequest = (e, id) => {
+      e.preventDefault(); 
+      var delLink = 'http://localhost:8080/koira/delete/' + id; 
+      const res = axios.delete(delLink);
+      window.open(delLink, '_blank');
+      console.log(res); 
+    }
+
   return (
+    <div>
+    <h1>{virhe}</h1>
     <Grid id="koiraboksi" container spacing={4} sx={{ marginTop:1}}>
       { koiratdb.map(koira => {
           return (
@@ -53,11 +56,11 @@ function KoiralistaMUI (props) {
                 <Typography>{ koira.rotu }</Typography>
                 <Typography>{ koira.sukupuoli }</Typography>
                 <Typography>{ koira.kuvaus }</Typography>
+                <Typography>{ koira.ika }</Typography>
               </CardContent>
  
               <CardActions>
-                  <IconButton color='primary' ><EditIcon /></IconButton>
-                  <IconButton color="secondary"><DeleteIcon /></IconButton>
+                  <IconButton color="secondary" onClick={ (e) => DeleteRequest(e, koira.id)}><DeleteIcon /></IconButton>
               </CardActions>
             </Card>
           </Grid>
@@ -65,6 +68,7 @@ function KoiralistaMUI (props) {
       })
     }
     </Grid>
+    </div>
   )
 }
 
