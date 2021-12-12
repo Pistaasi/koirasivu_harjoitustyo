@@ -35,7 +35,14 @@ body {
 
 
 #ikaChart {
+    top: 22px; 
     left: 15px; 
+    position: relative; 
+}
+
+#sanaChart {
+    top: 60px; 
+    left: 10%;
     position: relative; 
 }
 

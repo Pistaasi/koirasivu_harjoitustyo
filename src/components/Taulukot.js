@@ -9,7 +9,7 @@ import {
     // helpers
     helpers, DropShadow, Gradient
 } from 'rumble-charts';
-import { Doughnut } from 'react-chartjs-2';
+import varikoodit from "./Images/varikoodit.png"; 
 
 
 function Koira(props) {
@@ -30,6 +30,7 @@ function Koira(props) {
     useEffect(() => {
     haeKaikkiKoirat();
     }, []);
+    const varikoodit1 = varikoodit; 
 
     const Rodut = koiratdb;
     console.log(Rodut); 
@@ -131,7 +132,7 @@ const series2=[{
 
       return(
           <div>
-      <Chart
+      <Chart id="ikaChart"
   height={300}
   minY={0}
   series={series}
@@ -180,9 +181,9 @@ const series2=[{
     />
   </Layer>
 </Chart>
+<img src={varikoodit} height="220" Width="100"/>
 
-
-<Chart
+<Chart id="sanaChart"
 height={400}
 minY={0}
 width={400}

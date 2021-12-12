@@ -49,9 +49,7 @@ function KoiralistaMUI (props) {
 
               <CardContent>
               
-                  <CardMedia sx={ {height: 200, width: 200} }
-                    image={ KoiraJee }
-                    />
+
                 <Typography>{ koira.rotu }</Typography>
                 <Typography>{ koira.sukupuoli }</Typography>
                 <Typography>{ koira.kuvaus }</Typography>
